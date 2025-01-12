@@ -1,0 +1,47 @@
+<div class="dashboard-container">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <h1 class="app-name">Insurance</h1>
+      <div *ngIf="isLoggedIn$ | async">
+        <div class="notification-icon">
+          <i class="fa fa-bell"></i>
+        </div>
+      </div>
+    </header>
+  
+    <div *ngIf="isLoggedIn$ | async; else signIn">
+      <!-- Main Content -->
+      <div class="dashboard-main">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+          <div class="user-section">
+            <i class="fa fa-user-circle user-icon"></i>
+            <p class="greeting">Hi, {{ userName }}</p>
+            <div class="policy-info">
+              <p>Active Policies: {{ activePolicyCount }}</p>
+              <p>Pending Payments: {{ pendingPaymentCount }}</p>
+            </div>
+          </div>
+          <div class="menu-spacer"></div>
+          <ul class="sidebar-menu">
+            <li><a routerLink="/policyDetails"><i class="fa fa-file"></i> Policy Details</a></li>
+            <li><a routerLink="/premiumPayment"><i class="fa fa-credit-card"></i> Premium Payment</a></li>
+            <li><a (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a></li>
+          </ul>
+        </aside>
+  
+        <!-- Main Content Area -->
+        <div class="dashboard-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #signIn><router-outlet></router-outlet></ng-template>
+  
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+      &copy; 2025 Insurance App. All rights reserved.
+    </footer>
+  </div>
+  

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="header-title pb-3 mt-0">Policy Details</h5>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr class="align-self-center">
+                    <th>Policy Name</th>
+                    <th>Policy Number</th>
+                    <th>Premium Amount</th>
+                    <th>Next Due Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let policy of policies">
+                    <td>{{ policy.policyName }}</td>
+                    <td>{{ policy.policyNumber }}</td>
+                    <td>{{ policy.premiumAmount | currency }}</td>
+                    <td>{{ policy.nextDueDate }}</td>
+                    <td>
+                      <span
+                        class="badge"
+                        [ngClass]="{
+                          'badge-soft-primary': policy.isPaid,
+                          'badge-soft-warning': !policy.isPaid
+                        }"
+                      >
+                        {{ policy.isPaid ? 'Paid' : 'Due' }}
+                      </span>
+                    </td>
+                    <td>
+                      <button
+                        *ngIf="!policy.isPaid"
+                        class="btn btn-sm btn-primary"
+                        (click)="openPremiumPayment(policy.policyNumber)"
+                      >
+                        Pay
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

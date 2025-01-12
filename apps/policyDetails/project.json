@@ -1,0 +1,106 @@
+{
+  "name": "policyDetails",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/policyDetails/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/policyDetails",
+        "index": "apps/policyDetails/src/index.html",
+        "main": "apps/policyDetails/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/policyDetails/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/policyDetails/public"
+          }
+        ],
+        "styles": ["apps/policyDetails/src/styles.scss",
+         "node_modules/bootstrap/dist/css/bootstrap.min.css"],
+        "scripts": ["node_modules/@popperjs/core/dist/umd/popper.min.js",
+        "node_modules/bootstrap/dist/js/bootstrap.min.js"],
+        "customWebpackConfig": {
+          "path": "apps/policyDetails/webpack.config.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/policyDetails/webpack.prod.config.ts"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:dev-server",
+      "options": {
+        "port": 4201,
+        "publicHost": "http://localhost:4201"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "policyDetails:build:production"
+        },
+        "development": {
+          "buildTarget": "policyDetails:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "policyDetails:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "policyDetails:build",
+        "port": 4201,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "policyDetails:build:development"
+        },
+        "production": {
+          "buildTarget": "policyDetails:build:production"
+        }
+      }
+    }
+  }
+}
