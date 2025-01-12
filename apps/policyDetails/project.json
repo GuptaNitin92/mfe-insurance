@@ -20,7 +20,8 @@
           {
             "glob": "**/*",
             "input": "apps/policyDetails/public"
-          }
+          },
+          "apps/policyDetails/src/netlify.toml"
         ],
         "styles": ["apps/policyDetails/src/styles.scss",
          "node_modules/bootstrap/dist/css/bootstrap.min.css"],

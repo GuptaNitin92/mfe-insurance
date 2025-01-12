@@ -20,7 +20,8 @@
           {
             "glob": "**/*",
             "input": "apps/premiumPayment/public"
-          }
+          },
+          "apps/premiumPayment/src/netlify.toml"
         ],
         "styles": ["apps/premiumPayment/src/styles.scss"],
         "scripts": [],

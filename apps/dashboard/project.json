@@ -21,8 +21,6 @@
             "glob": "**/*",
             "input": "apps/dashboard/public"
           }, 
-          "apps/dashboard/src/favicon.ico",
-          "apps/dashboard/src/assets",
           "apps/dashboard/src/netlify.toml"
         ],
         "styles": [
