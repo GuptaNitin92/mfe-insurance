@@ -43,6 +43,14 @@ Ensure you have the following installed on your machine:
    - **Dashboard**: The container application.
    - Other MFEs (`login`, `policyDetails`, `premiumPayment`) will load dynamically when accessed from the Dashboard.
 
+5. **Available Users credentials**   
+   const sampleUsers = [
+      { username: 'user1', password: 'pass1' },
+      { username: 'user2', password: 'pass2' },
+    ];
+
+    Please use one of these to login. 
+
 ---
 
 ## Deployment to Netlify
