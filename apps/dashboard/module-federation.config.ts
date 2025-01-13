@@ -1,5 +1,21 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 
+const remotes: (string | [remoteName: string, remoteUrl: string])[] = [];
+
+if (process.env.NODE_ENV === 'production') {
+  remotes.push(
+    ['login', 'https://nagp-mfe-insurance-login.netlify.app/remoteEntry.mjs'],
+    ['policyDetails', 'https://aquamarine-alfajores-8065ee.netlify.app/remoteEntry.mjs'],
+    ['premiumPayment', 'https://rad-starburst-51bf24.netlify.app/remoteEntry.mjs']
+  );
+} else {
+  remotes.push('login', 
+    'policyDetails',
+    'premiumPayment'
+  );
+}
+
+
 const config: ModuleFederationConfig = {
   name: 'dashboard',
   /**
@@ -14,7 +30,7 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['policyDetails', 'premiumPayment', 'login'],
+  remotes
 };
 
 /**
