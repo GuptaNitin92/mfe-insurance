@@ -81,7 +81,7 @@ https://dashboard-nagp-mfe-insurance.netlify.app/
 
 Any one of the username & password can be used to login in application:
 
-      ```  
+      ```
       { username: 'user1', password: 'pass1' }
       { username: 'user2', password: 'pass2' }
       ```
