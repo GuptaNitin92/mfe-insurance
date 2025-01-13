@@ -68,11 +68,11 @@ https://dashboard-nagp-mfe-insurance.netlify.app/
 [login](https://nagp-mfe-insurance-login.netlify.app/)
 ```
 
--	***Policy Details: ***
+-	***Policy Details:***
 ```
 [policyDetails](https://aquamarine-alfajores-8065ee.netlify.app/)
 ```
--	***Premium Payment: ***
+-	***Premium Payment:***
 ```
 [premiumPayment](https://rad-starburst-51bf24.netlify.app/)
 ```
@@ -80,6 +80,7 @@ https://dashboard-nagp-mfe-insurance.netlify.app/
 ***Available User credentials:***
 
 Any one of the username & password can be used to login in application:
+
       ```  
       { username: 'user1', password: 'pass1' }
       { username: 'user2', password: 'pass2' }
