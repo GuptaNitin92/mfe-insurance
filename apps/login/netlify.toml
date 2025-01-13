@@ -10,6 +10,21 @@
   [headers.values]
     Access-Control-Allow-Origin = "*"
 
+    # Prevent Clickjacking
+    X-Frame-Options = "DENY"
+
+    # Prevent MIME-type sniffing
+    X-Content-Type-Options = "nosniff"
+
+    # Enforce HTTPS (Netlify automatically provides SSL certificates)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+    # Protect sensitive data from being cached
+    Cache-Control = "no-store"
+
+    # Restrict the embedding of your MFE in iframes
+    X-Frame-Options = "SAMEORIGIN"
+
 # Ensure `.mjs` files are served with the correct Content-Type
 [[headers]]
   for = "/remoteEntry.mjs"
