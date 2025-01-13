@@ -22,8 +22,6 @@
     # Protect sensitive data from being cached
     Cache-Control = "no-store"
 
-    # Restrict the embedding of your MFE in iframes
-    X-Frame-Options = "SAMEORIGIN"
 
 # Ensure `.mjs` files are served with the correct Content-Type
 [[headers]]
