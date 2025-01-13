@@ -2,7 +2,7 @@ import { ModuleFederationConfig } from '@nx/module-federation';
 
 const remotes: (string | [remoteName: string, remoteUrl: string])[] = [];
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === undefined) {
   remotes.push(
     ['login', 'https://nagp-mfe-insurance-login.netlify.app/remoteEntry.mjs'],
     ['policyDetails', 'https://aquamarine-alfajores-8065ee.netlify.app/remoteEntry.mjs'],
