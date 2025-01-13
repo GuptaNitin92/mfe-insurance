@@ -55,6 +55,19 @@ Ensure you have the following installed on your machine:
 
 ## Deployment to Netlify
 
+### Application has been deployed on Netlify
+
+Application Link: https://dashboard-nagp-mfe-insurance.netlify.app/
+MFE Link:
+•	Login: [login](https://nagp-mfe-insurance-login.netlify.app/)
+•	Policy Details: [policyDetails](https://aquamarine-alfajores-8065ee.netlify.app/)
+•	Premium Payment: [premiumPayment](https://rad-starburst-51bf24.netlify.app/)
+Available User credentials:
+Any one of the username & password can be used to login in application:
+      { username: 'user1', password: 'pass1' }
+      { username: 'user2', password: 'pass2' }
+
+
 If you wish to deploy the applications to Netlify, use the following steps:
 
 1. Install the Netlify CLI:
