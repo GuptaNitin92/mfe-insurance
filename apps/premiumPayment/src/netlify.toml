@@ -1,11 +1,18 @@
+# Redirects for Single Page Applications
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# CORS Configuration for All Resources
 [[headers]]
-  # Define which paths this specific [[headers]] block will cover.
   for = "/*"
-
   [headers.values]
     Access-Control-Allow-Origin = "*"
+
+# Ensure `.mjs` files are served with the correct Content-Type
+[[headers]]
+  for = "/remoteEntry.mjs"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Type = "application/javascript"
